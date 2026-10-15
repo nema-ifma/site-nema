@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NEMA — Núcleo de Estudos em Modelagem Aeroespacial | IFMA Imperatriz</title>
-
+  
   <!-- Tipografia Acadêmica / Técnica (Google Fonts) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -265,7 +265,6 @@
       color: var(--text-primary);
     }
 
-    /* Menu Mobile Hamburger */
     .menu-toggle {
       display: none;
       background: none;
@@ -370,7 +369,7 @@
     }
 
     /* ==========================================================================
-       6. DESENVOLVIMENTO TÉCNICO (REGISTROS E AVANÇOS)
+       6. DESENVOLVIMENTO TÉCNICO
        ========================================================================== */
     .dev-timeline {
       display: flex;
@@ -429,7 +428,7 @@
     }
 
     /* ==========================================================================
-       7. GALERIA DE FOTOS COM LIGHTBOX MODAL
+       7. GALERIA DE FOTOS (6 ESPAÇOS COM MODAL)
        ========================================================================== */
     .photo-grid {
       display: grid;
@@ -467,7 +466,7 @@
     }
 
     .photo-info {
-      padding: 1rem;
+      padding: 1.25rem;
     }
 
     .photo-title {
@@ -490,7 +489,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(10, 14, 12, 0.92);
+      background-color: rgba(10, 14, 12, 0.93);
       z-index: 2000;
       justify-content: center;
       align-items: center;
@@ -551,11 +550,11 @@
     }
 
     /* ==========================================================================
-       8. GALERIA DE VÍDEOS
+       8. GALERIA DE VÍDEOS (6 ESPAÇOS COM DESCRIÇÃO)
        ========================================================================== */
     .video-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 2rem;
     }
 
@@ -564,6 +563,8 @@
       border: 1px solid var(--border-color);
       border-radius: var(--border-radius);
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
     .video-responsive {
@@ -585,6 +586,9 @@
 
     .video-info {
       padding: 1.25rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
     }
 
     .video-title {
@@ -596,6 +600,7 @@
     .video-desc {
       font-size: 0.875rem;
       color: var(--text-secondary);
+      line-height: 1.5;
     }
 
     /* ==========================================================================
@@ -771,7 +776,6 @@
       }
     }
 
-    /* Suporte a redução de movimento */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -789,7 +793,6 @@
        ========================================================================== -->
   <header class="site-header">
     <div class="container nav-container">
-      <!-- EDITÁVEL: Identificação e Marca do Núcleo -->
       <a href="#inicio" class="brand" aria-label="Página Inicial do NEMA">
         <div class="brand-mark">NEMA</div>
         <div class="brand-text">
@@ -819,20 +822,17 @@
   <main id="inicio">
 
     <!-- ==========================================================================
-         SEÇÃO 1: APRESENTAÇÃO / HERO
+         SEÇÃO 1: APRESENTAÇÃO
          ========================================================================== -->
     <section id="apresentacao" class="hero">
       <div class="container hero-grid">
         <div>
-          <!-- EDITÁVEL: Selo de Instituição -->
           <div class="tech-badge">
             INSTITUTO FEDERAL DO MARANHÃO — CAMPUS IMPERATRIZ
           </div>
-
-          <!-- EDITÁVEL: Título do Núcleo -->
+          
           <h1 class="hero-title">Núcleo de Estudos em Modelagem Aeroespacial</h1>
-
-          <!-- EDITÁVEL: Texto de Apresentação -->
+          
           <p class="hero-lead">
             O NEMA é um grupo de pesquisa e desenvolvimento dedicado ao estudo técnico de sistemas propulsivos, dinâmica de voo e aerodinâmica. Nosso projeto inaugural concentra-se no desenvolvimento rigoroso de um <strong>minifoguete a combustível sólido</strong>.
           </p>
@@ -844,7 +844,6 @@
         </div>
 
         <div>
-          <!-- EDITÁVEL: Destaque do Projeto Atual -->
           <div class="hero-card">
             <span class="hero-card-title">PROJETO EM ANDAMENTO</span>
             <h2 class="hero-card-heading">Minifoguete a Combustível Sólido</h2>
@@ -870,16 +869,14 @@
         </div>
 
         <div class="about-grid">
-          <!-- EDITÁVEL: Bloco 1 - Objetivos -->
           <article class="academic-card">
             <span class="card-icon">[01. OBJ]</span>
             <h3 class="card-title">Objetivos Primários</h3>
             <p>
-              Projetar, modelar e construir um minifoguete capaz de atingir apogeu controlado, garantindo a integridade dos sistemas de telemetria e recuperação por paraquedas.
+              Projetar, modelar e construir um minifoguete capaz de atingir apogeu controlledo, garantindo a integridade dos sistemas de telemetria e recuperação por paraquedas.
             </p>
           </article>
 
-          <!-- EDITÁVEL: Bloco 2 - Motivação -->
           <article class="academic-card">
             <span class="card-icon">[02. MOT]</span>
             <h3 class="card-title">Motivação Acadêmica</h3>
@@ -888,7 +885,6 @@
             </p>
           </article>
 
-          <!-- EDITÁVEL: Bloco 3 - Metodologia -->
           <article class="academic-card">
             <span class="card-icon">[03. MET]</span>
             <h3 class="card-title">Metodologia Aplicada</h3>
@@ -897,7 +893,6 @@
             </p>
           </article>
 
-          <!-- EDITÁVEL: Bloco 4 - Resultados Esperados -->
           <article class="academic-card">
             <span class="card-icon">[04. RES]</span>
             <h3 class="card-title">Resultados Esperados</h3>
@@ -910,7 +905,7 @@
     </section>
 
     <!-- ==========================================================================
-         SEÇÃO 3: DESENVOLVIMENTO DO PROJETO (REGISTRO TÉCNICO)
+         SEÇÃO 3: DESENVOLVIMENTO TÉCNICO
          ========================================================================== -->
     <section id="desenvolvimento" class="section">
       <div class="container">
@@ -923,7 +918,6 @@
         </div>
 
         <div class="dev-timeline">
-          <!-- EDITÁVEL: Etapa 1 -->
           <div class="dev-item">
             <div class="dev-date">ETAPA 01</div>
             <div class="dev-content">
@@ -934,7 +928,6 @@
             </div>
           </div>
 
-          <!-- EDITÁVEL: Etapa 2 -->
           <div class="dev-item">
             <div class="dev-date">ETAPA 02</div>
             <div class="dev-content">
@@ -945,7 +938,6 @@
             </div>
           </div>
 
-          <!-- EDITÁVEL: Etapa 3 -->
           <div class="dev-item">
             <div class="dev-date">ETAPA 03</div>
             <div class="dev-content">
@@ -960,7 +952,7 @@
     </section>
 
     <!-- ==========================================================================
-         SEÇÃO 4: GALERIA DE FOTOGRAFIAS
+         SEÇÃO 4: GALERIA DE FOTOGRAFIAS (6 ESPAÇOS)
          ========================================================================== -->
     <section id="fotos" class="section">
       <div class="container">
@@ -968,50 +960,92 @@
           <span class="section-subtitle">// REGISTROS VISUAIS</span>
           <h2 class="section-title">Galeria de Fotografias</h2>
           <p class="section-description">
-            Acompanhe os bastidores do laboratório, fabricação de componentes, reuniões e ensaios.
+            Acompanhe os bastidores do laboratório, fabricação de componentes, reuniões e ensaios experimentais. Clique na imagem para ampliá-la.
           </p>
         </div>
 
         <div class="photo-grid">
-          <!-- EDITÁVEL: Foto 1 -->
-          <div class="photo-card" onclick="openLightbox(this)"
+          <!-- FOTO 1 -->
+          <div class="photo-card" onclick="openLightbox(this)" 
                data-full="https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=1200&q=80"
-               data-title="Modelagem 3D do Minifoguete"
-               data-desc="Visualização CAD da estrutura externa e do encaixe das empenas estabilizadoras.">
+               data-title="Modelagem CAD da Fuselagem" 
+               data-desc="Visualização CAD tridimensional do corpo do minifoguete, com alinhamento das empenas e encaixe dos módulos.">
             <div class="photo-wrapper">
-              <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=600&q=80" alt="Modelagem 3D do Minifoguete">
+              <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=600&q=80" alt="Modelagem CAD da Fuselagem">
             </div>
             <div class="photo-info">
               <h3 class="photo-title">Modelagem CAD</h3>
-              <p class="photo-caption">Fuselagem e estabilizadores</p>
+              <p class="photo-caption">Desenho técnico e geometria</p>
             </div>
           </div>
 
-          <!-- EDITÁVEL: Foto 2 -->
-          <div class="photo-card" onclick="openLightbox(this)"
+          <!-- FOTO 2 -->
+          <div class="photo-card" onclick="openLightbox(this)" 
                data-full="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80"
-               data-title="Trabalho de Laboratório"
-               data-desc="Medição de componentes e preparação do corpo de prova do propelente sólido.">
+               data-title="Preparação do Propelente em Laboratório" 
+               data-desc="Medição e controle estequiométrico de massa para preparação dos corpos de prova de combustão sólida.">
             <div class="photo-wrapper">
-              <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Trabalho de Laboratório">
+              <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Preparação em Laboratório">
             </div>
             <div class="photo-info">
-              <h3 class="photo-title">Preparação de Materiais</h3>
-              <p class="photo-caption">Ensaio e controle de massa</p>
+              <h3 class="photo-title">Sintese de Materiais</h3>
+              <p class="photo-caption">Dosagem de propelente sólido</p>
             </div>
           </div>
 
-          <!-- EDITÁVEL: Foto 3 -->
-          <div class="photo-card" onclick="openLightbox(this)"
+          <!-- FOTO 3 -->
+          <div class="photo-card" onclick="openLightbox(this)" 
                data-full="https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?auto=format&fit=crop&w=1200&q=80"
-               data-title="Simulações no Computador"
-               data-desc="Execução de simulações aerodinâmicas para validação do apogeu e comportamento de voo.">
+               data-title="Simulação Computacional de Voo" 
+               data-desc="Gráficos do perfil de aceleração, velocidade máxima e apogeu estimado calculados via software especializado.">
             <div class="photo-wrapper">
-              <img src="https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?auto=format&fit=crop&w=600&q=80" alt="Simulações Computacionais">
+              <img src="https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?auto=format&fit=crop&w=600&q=80" alt="Simulação de Voo">
             </div>
             <div class="photo-info">
-              <h3 class="photo-title">Análise de Dados</h3>
-              <p class="photo-caption">Simulação no OpenRocket</p>
+              <h3 class="photo-title">Simulação OpenRocket</h3>
+              <p class="photo-caption">Análise do perfil de voo</p>
+            </div>
+          </div>
+
+          <!-- FOTO 4 -->
+          <div class="photo-card" onclick="openLightbox(this)" 
+               data-full="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=1200&q=80"
+               data-title="Fabricação da Coifa (Impressão 3D)" 
+               data-desc="Impressão e acabamento superficial da coifa ogival para minimização do arrasto aerodinâmico frontal.">
+            <div class="photo-wrapper">
+              <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80" alt="Fabricação de Componentes">
+            </div>
+            <div class="photo-info">
+              <h3 class="photo-title">Prototipagem 3D</h3>
+              <p class="photo-caption">Coifa e componentes mecânicos</p>
+            </div>
+          </div>
+
+          <!-- FOTO 5 -->
+          <div class="photo-card" onclick="openLightbox(this)" 
+               data-full="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
+               data-title="Módulo Eletrônico de Telemetria" 
+               data-desc="Montagem dos circuitos integrados, altímetro barométrico, aceleração de 3 eixos e módulo emissor de radiofrequência.">
+            <div class="photo-wrapper">
+              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="Módulo Eletrônico">
+            </div>
+            <div class="photo-info">
+              <h3 class="photo-title">Sistema de Telemetria</h3>
+              <p class="photo-caption">Sensores de bordo e rádio</p>
+            </div>
+          </div>
+
+          <!-- FOTO 6 -->
+          <div class="photo-card" onclick="openLightbox(this)" 
+               data-full="https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=1200&q=80"
+               data-title="Bancada Instrumental para Ensaio Estático" 
+               data-desc="Estrutura de fixação do motor com célula de carga para calibração das curvas de pressão durante os testes.">
+            <div class="photo-wrapper">
+              <img src="https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=600&q=80" alt="Bancada de Testes">
+            </div>
+            <div class="photo-info">
+              <h3 class="photo-title">Bancada Experimental</h3>
+              <p class="photo-caption">Estrutura de calibração</p>
             </div>
           </div>
         </div>
@@ -1033,39 +1067,82 @@
     </div>
 
     <!-- ==========================================================================
-         SEÇÃO 5: GALERIA DE VÍDEOS
+         SEÇÃO 5: GALERIA DE VÍDEOS (6 ESPAÇOS)
          ========================================================================== -->
     <section id="videos" class="section">
       <div class="container">
         <div class="section-header">
-          <span class="section-subtitle">// DEMONSTRAÇÕES E TESTES</span>
+          <span class="section-subtitle">// DEMONSTRAÇÕES E REGISTROS</span>
           <h2 class="section-title">Galeria de Vídeos</h2>
           <p class="section-description">
-            Apresentações de projetos, registros de ensaios em bancada e demonstrações experimentais.
+            Assista aos registros de testes de bancada, simulações em vídeo, apresentações e seminários do projeto.
           </p>
         </div>
 
         <div class="video-grid">
-          <!-- EDITÁVEL: Vídeo 1 (YouTube) -->
+          <!-- VÍDEO 1 -->
           <article class="video-card">
             <div class="video-responsive">
-              <!-- Substitua o ID 'dQw4w9WgXcQ' pelo ID do vídeo do YouTube -->
-              <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Apresentação do Projeto NEMA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Apresentação Geral do NEMA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="video-info">
-              <h3 class="video-title">Apresentação Geral do NEMA</h3>
-              <p class="video-desc">Visão panorâmica dos objetivos da equipe e estrutura do IFMA Campus Imperatriz.</p>
+              <h3 class="video-title">01. Visão Geral do Núcleo NEMA</h3>
+              <p class="video-desc">Apresentação institucional do grupo de pesquisa, infraestrutura e objetivos no IFMA Campus Imperatriz.</p>
             </div>
           </article>
 
-          <!-- EDITÁVEL: Vídeo 2 (YouTube) -->
+          <!-- VÍDEO 2 -->
           <article class="video-card">
             <div class="video-responsive">
               <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Ensaio Estático de Bancada" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="video-info">
-              <h3 class="video-title">Ensaio Estático do Propulsor</h3>
-              <p class="video-desc">Registro do teste de bancada para aquisição das curvas de pressão e empuxo.</p>
+              <h3 class="video-title">02. Ensaio Estático do Propulsor</h3>
+              <p class="video-desc">Teste de bancada com medição do empuxo e avaliação da curva de queima do combustível sólido.</p>
+            </div>
+          </article>
+
+          <!-- VÍDEO 3 -->
+          <article class="video-card">
+            <div class="video-responsive">
+              <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Teste do Sistema de Paraquedas" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-info">
+              <h3 class="video-title">03. Teste do Sistema de Ejeção</h3>
+              <p class="video-desc">Demonstração do mecanismo de acionamento de emergência e liberação do paraquedas de recuperação.</p>
+            </div>
+          </article>
+
+          <!-- VÍDEO 4 -->
+          <article class="video-card">
+            <div class="video-responsive">
+              <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Aquisição de Dados Telemétricos" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-info">
+              <h3 class="video-title">04. Leitura do Sistema de Telemetria</h3>
+              <p class="video-desc">Transmissão e recepção de dados de altitude e pressão em tempo real na estação solo.</p>
+            </div>
+          </article>
+
+          <!-- VÍDEO 5 -->
+          <article class="video-card">
+            <div class="video-responsive">
+              <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Workshop de Simulação no OpenRocket" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-info">
+              <h3 class="video-title">05. Simulação de Trajetória</h3>
+              <p class="video-desc">Gravação do treinamento sobre modelagem paramétrica de minifoguetes no software OpenRocket.</p>
+            </div>
+          </article>
+
+          <!-- VÍDEO 6 -->
+          <article class="video-card">
+            <div class="video-responsive">
+              <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Apresentação em Evento Científico" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-info">
+              <h3 class="video-title">06. Apresentação em Seminário</h3>
+              <p class="video-desc">Exposição dos resultados parciais obtidos pelo NEMA em simpósio acadêmico de engenharia.</p>
             </div>
           </article>
         </div>
@@ -1086,10 +1163,8 @@
         </div>
 
         <div class="team-grid">
-          <!-- EDITÁVEL: Membro 1 -->
           <div class="team-card">
             <div class="team-avatar">
-              <!-- Insira a URL da foto ou mantenha a sigla -->
               <span>PROF</span>
             </div>
             <h3 class="team-name">Prof. Dr. Coordenador</h3>
@@ -1097,7 +1172,6 @@
             <p class="team-bio">Docente do IFMA Campus Imperatriz com atuação nas áreas de Engenharia e Modelagem.</p>
           </div>
 
-          <!-- EDITÁVEL: Membro 2 -->
           <div class="team-card">
             <div class="team-avatar">
               <span>DISC</span>
@@ -1107,7 +1181,6 @@
             <p class="team-bio">Estudante bolsista responsável pelo estudo da mistura do propelente sólido.</p>
           </div>
 
-          <!-- EDITÁVEL: Membro 3 -->
           <div class="team-card">
             <div class="team-avatar">
               <span>DISC</span>
@@ -1117,7 +1190,6 @@
             <p class="team-bio">Estudante responsável pelo dimensionamento aerodinâmico e simulações de voo.</p>
           </div>
 
-          <!-- EDITÁVEL: Membro 4 -->
           <div class="team-card">
             <div class="team-avatar">
               <span>DISC</span>
@@ -1156,7 +1228,6 @@
           <div class="academic-card">
             <h3 class="card-title">Canais Oficiais</h3>
             <p>
-              <!-- EDITÁVEL: Insira seus dados reais -->
               <strong>E-mail do Núcleo:</strong> nema.imperatriz@ifma.edu.br<br>
               <strong>Rede Social:</strong> @nema.ifma<br>
               <strong>Laboratório:</strong> Bloco de Engenharia / Pesquisa
@@ -1223,7 +1294,7 @@
        SCRIPTS JAVASCRIPT NATIVOS
        ========================================================================== -->
   <script>
-    // 1. Alternância do Menu Mobile
+    // 1. Menu Mobile
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
 
@@ -1231,14 +1302,13 @@
       navMenu.classList.toggle('active');
     });
 
-    // Fechar menu ao clicar em um link
     document.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('active');
       });
     });
 
-    // 2. Lightbox da Galeria de Fotos
+    // 2. Lightbox das Fotos
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     const lightboxTitle = document.getElementById('lightboxTitle');
@@ -1255,7 +1325,7 @@
       lightboxDesc.textContent = desc;
 
       lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden'; // Impede rolagem ao fundo
+      document.body.style.overflow = 'hidden';
     }
 
     function closeLightbox() {
@@ -1263,7 +1333,6 @@
       document.body.style.overflow = 'auto';
     }
 
-    // Fechar lightbox ao clicar fora da imagem ou pressionar ESC
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) {
         closeLightbox();
