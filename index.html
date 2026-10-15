@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEMA — Núcleo de Estudos em Modelagem Aeroespacial | IFMA Imperatriz</title>
+
+  <!-- Tipografia Acadêmica / Técnica (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       1. VARIÁVEIS DE DESIGN E PALETA INSTITUCIONAL (TEMA ESCURO)
+       ========================================================================== */
+    :root {
+      /* Cores Base Escuras (Matte Slate / Grafite) */
+      --bg-main: #0e1210;
+      --bg-surface: #161c18;
+      --bg-surface-elevated: #1e2621;
+      --border-color: #2a362f;
+      --border-color-focus: #3e5246;
+
+      /* Cores Institucionais IFMA Adaptadas */
+      --ifma-green: #2e7d32;
+      --ifma-green-light: #4caf50;
+      --ifma-green-accent: #81c784;
+      --ifma-red: #c62828;
+      --ifma-red-light: #ef5350;
+
+      /* Tipografia e Leitura */
+      --text-primary: #f1f5f2;
+      --text-secondary: #a3b8ac;
+      --text-muted: #6c7f74;
+
+      /* Fontes */
+      --font-serif: 'Merriweather', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      /* Dimensões e Espaçamentos */
+      --container-max-width: 1140px;
+      --header-height: 72px;
+      --border-radius: 6px;
+    }
+
+    /* Reset Geral */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ==========================================================================
+       2. TIPOGRAFIA E ELEMENTOS GERAIS
+       ========================================================================== */
+    h1, h2, h3, h4 {
+      color: var(--text-primary);
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    h1, h2 {
+      font-family: var(--font-serif);
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--text-secondary);
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: var(--ifma-green-accent);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--ifma-green-light);
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-header {
+      margin-bottom: 3rem;
+      max-width: 750px;
+    }
+
+    .section-subtitle {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ifma-green-light);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .section-description {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+    }
+
+    /* Badges e Módulos Técnicos */
+    .tech-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.65rem;
+      background-color: rgba(76, 175, 80, 0.1);
+      border: 1px solid var(--border-color);
+      border-left: 3px solid var(--ifma-green-light);
+      color: var(--text-primary);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border-radius: var(--border-radius);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background-color: var(--ifma-green);
+      color: #ffffff;
+      border-color: var(--ifma-green-light);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--ifma-green-light);
+      color: #000000;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--text-primary);
+      border-color: var(--border-color);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--text-secondary);
+      background-color: var(--bg-surface);
+    }
+
+    /* ==========================================================================
+       3. NAVEGAÇÃO / HEADER
+       ========================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: rgba(14, 18, 16, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-color);
+      height: var(--header-height);
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      background-color: var(--ifma-green);
+      border: 1px solid var(--ifma-green-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text-primary);
+      line-height: 1.1;
+    }
+
+    .brand-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 1.75rem;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--text-primary);
+    }
+
+    /* Menu Mobile Hamburger */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 0.5rem;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    /* ==========================================================================
+       4. HERO / APRESENTAÇÃO
+       ========================================================================== */
+    .hero {
+      padding: 6rem 0 5rem 0;
+      background-color: var(--bg-main);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-size: 2.75rem;
+      margin-bottom: 1.25rem;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+    }
+
+    .hero-lead {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-top: 3px solid var(--ifma-red);
+      padding: 1.75rem;
+      border-radius: var(--border-radius);
+    }
+
+    .hero-card-title {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--ifma-red-light);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .hero-card-heading {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    /* ==========================================================================
+       5. SOBRE O PROJETO (METODOLOGIA E OBJETIVOS)
+       ========================================================================== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .academic-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      padding: 1.75rem;
+      border-radius: var(--border-radius);
+      transition: border-color 0.2s ease;
+    }
+
+    .academic-card:hover {
+      border-color: var(--border-color-focus);
+    }
+
+    .card-icon {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--ifma-green-light);
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      margin-bottom: 0.75rem;
+      font-family: var(--font-sans);
+    }
+
+    /* ==========================================================================
+       6. DESENVOLVIMENTO TÉCNICO (REGISTROS E AVANÇOS)
+       ========================================================================== */
+    .dev-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      position: relative;
+    }
+
+    .dev-timeline::before {
+      content: '';
+      position: absolute;
+      left: 140px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background-color: var(--border-color);
+    }
+
+    .dev-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 2.5rem;
+      align-items: flex-start;
+    }
+
+    .dev-date {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--ifma-green-light);
+      text-align: right;
+      padding-top: 0.25rem;
+    }
+
+    .dev-content {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      position: relative;
+    }
+
+    .dev-content::before {
+      content: '';
+      position: absolute;
+      left: -9px;
+      top: 18px;
+      width: 16px;
+      height: 1px;
+      background-color: var(--border-color);
+    }
+
+    .dev-title {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      font-family: var(--font-sans);
+    }
+
+    /* ==========================================================================
+       7. GALERIA DE FOTOS COM LIGHTBOX MODAL
+       ========================================================================== */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .photo-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .photo-card:hover {
+      border-color: var(--ifma-green-light);
+      transform: translateY(-2px);
+    }
+
+    .photo-wrapper {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      background-color: var(--bg-surface-elevated);
+      overflow: hidden;
+    }
+
+    .photo-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-info {
+      padding: 1rem;
+    }
+
+    .photo-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .photo-caption {
+      font-size: 0.825rem;
+      color: var(--text-muted);
+    }
+
+    /* Lightbox Modal */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(10, 14, 12, 0.92);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      max-width: 900px;
+      width: 100%;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .lightbox-img-container {
+      width: 100%;
+      max-height: 60vh;
+      background-color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-img-container img {
+      max-width: 100%;
+      max-height: 60vh;
+      object-fit: contain;
+    }
+
+    .lightbox-details {
+      padding: 1.5rem;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(0,0,0,0.6);
+      border: 1px solid var(--border-color);
+      color: #fff;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    /* ==========================================================================
+       8. GALERIA DE VÍDEOS
+       ========================================================================== */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .video-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+    }
+
+    .video-responsive {
+      position: relative;
+      padding-bottom: 56.25%; /* Proporção 16:9 */
+      height: 0;
+      overflow: hidden;
+      background-color: #000;
+    }
+
+    .video-responsive iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-info {
+      padding: 1.25rem;
+    }
+
+    .video-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .video-desc {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    /* ==========================================================================
+       9. EQUIPE E COLABORADORES
+       ========================================================================== */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .team-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .team-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      margin: 0 auto 1rem auto;
+      background-color: var(--bg-surface-elevated);
+      border: 2px solid var(--border-color);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+    }
+
+    .team-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .team-name {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .team-role {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--ifma-green-light);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .team-bio {
+      font-size: 0.825rem;
+      color: var(--text-secondary);
+    }
+
+    /* ==========================================================================
+       10. CONTATO E RODAPÉ INSTITUCIONAL
+       ========================================================================== */
+    .footer {
+      background-color: #080b09;
+      padding: 4rem 0 2rem 0;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand {
+      margin-bottom: 1rem;
+    }
+
+    .footer-heading {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.825rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* ==========================================================================
+       11. RESPONSIVIDADE E ACESSIBILIDADE
+       ========================================================================== */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-menu {
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        background-color: var(--bg-surface);
+        border-bottom: 1px solid var(--border-color);
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1rem;
+        display: none;
+      }
+
+      .nav-menu.active {
+        display: flex;
+      }
+
+      .dev-timeline::before {
+        left: 0;
+      }
+
+      .dev-item {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+
+      .dev-date {
+        text-align: left;
+      }
+
+      .dev-content::before {
+        display: none;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+      }
+    }
+
+    /* Suporte a redução de movimento */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       CABEÇALHO E NAVEGAÇÃO
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <!-- EDITÁVEL: Identificação e Marca do Núcleo -->
+      <a href="#inicio" class="brand" aria-label="Página Inicial do NEMA">
+        <div class="brand-mark">NEMA</div>
+        <div class="brand-text">
+          <span class="brand-title">NEMA — IFMA</span>
+          <span class="brand-sub">Campus Imperatriz</span>
+        </div>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Alternar Menu de Navegação">
+        &#9776;
+      </button>
+
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#apresentacao" class="nav-link">Apresentação</a></li>
+          <li><a href="#sobre" class="nav-link">Sobre o Projeto</a></li>
+          <li><a href="#desenvolvimento" class="nav-link">Desenvolvimento</a></li>
+          <li><a href="#fotos" class="nav-link">Fotografias</a></li>
+          <li><a href="#videos" class="nav-link">Vídeos</a></li>
+          <li><a href="#equipe" class="nav-link">Equipe</a></li>
+          <li><a href="#contato" class="nav-link">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+
+    <!-- ==========================================================================
+         SEÇÃO 1: APRESENTAÇÃO / HERO
+         ========================================================================== -->
+    <section id="apresentacao" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <!-- EDITÁVEL: Selo de Instituição -->
+          <div class="tech-badge">
+            INSTITUTO FEDERAL DO MARANHÃO — CAMPUS IMPERATRIZ
+          </div>
+
+          <!-- EDITÁVEL: Título do Núcleo -->
+          <h1 class="hero-title">Núcleo de Estudos em Modelagem Aeroespacial</h1>
+
+          <!-- EDITÁVEL: Texto de Apresentação -->
+          <p class="hero-lead">
+            O NEMA é um grupo de pesquisa e desenvolvimento dedicado ao estudo técnico de sistemas propulsivos, dinâmica de voo e aerodinâmica. Nosso projeto inaugural concentra-se no desenvolvimento rigoroso de um <strong>minifoguete a combustível sólido</strong>.
+          </p>
+
+          <div class="hero-cta">
+            <a href="#sobre" class="btn btn-primary">Conhecer o Projeto</a>
+            <a href="#desenvolvimento" class="btn btn-outline">Registro Científico</a>
+          </div>
+        </div>
+
+        <div>
+          <!-- EDITÁVEL: Destaque do Projeto Atual -->
+          <div class="hero-card">
+            <span class="hero-card-title">PROJETO EM ANDAMENTO</span>
+            <h2 class="hero-card-heading">Minifoguete a Combustível Sólido</h2>
+            <p>
+              Pesquisa focada na formulação, caracterização e ensaio estático de propelente sólido de classe experimental, juntamente com o dimensionamento aerodinâmico da fuselagem e computação de trajetória.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SEÇÃO 2: SOBRE O PROJETO
+         ========================================================================== -->
+    <section id="sobre" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">// FUNDAMENTAÇÃO E OBJETIVOS</span>
+          <h2 class="section-title">Sobre o Projeto Minifoguete</h2>
+          <p class="section-description">
+            Visão geral da pesquisa científica e das metodologias de engenharia aplicadas ao desenvolvimento do veículo de sondagem experimental.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <!-- EDITÁVEL: Bloco 1 - Objetivos -->
+          <article class="academic-card">
+            <span class="card-icon">[01. OBJ]</span>
+            <h3 class="card-title">Objetivos Primários</h3>
+            <p>
+              Projetar, modelar e construir um minifoguete capaz de atingir apogeu controlado, garantindo a integridade dos sistemas de telemetria e recuperação por paraquedas.
+            </p>
+          </article>
+
+          <!-- EDITÁVEL: Bloco 2 - Motivação -->
+          <article class="academic-card">
+            <span class="card-icon">[02. MOT]</span>
+            <h3 class="card-title">Motivação Acadêmica</h3>
+            <p>
+              Incentivar o aprendizado prático interdisciplinar abrangendo Termodinâmica, Mecânica dos Fluidos, Ciência dos Materiais e Eletrônica no Campus Imperatriz.
+            </p>
+          </article>
+
+          <!-- EDITÁVEL: Bloco 3 - Metodologia -->
+          <article class="academic-card">
+            <span class="card-icon">[03. MET]</span>
+            <h3 class="card-title">Metodologia Aplicada</h3>
+            <p>
+              Uso de ferramentas CAD/CAE, simulações de dinâmica de fluidos (CFD), testes de bancada controlados para propulsão e análises estatísticas de impulso específico.
+            </p>
+          </article>
+
+          <!-- EDITÁVEL: Bloco 4 - Resultados Esperados -->
+          <article class="academic-card">
+            <span class="card-icon">[04. RES]</span>
+            <h3 class="card-title">Resultados Esperados</h3>
+            <p>
+              Validação das curvas de empuxo teórico versus experimental, publicação de relatórios técnicos e consolidação da infraestrutura de pesquisa do NEMA.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SEÇÃO 3: DESENVOLVIMENTO DO PROJETO (REGISTRO TÉCNICO)
+         ========================================================================== -->
+    <section id="desenvolvimento" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">// CRONOGRAMA E ETAPAS TÉCNICAS</span>
+          <h2 class="section-title">Desenvolvimento do Projeto</h2>
+          <p class="section-description">
+            Registro cronológico do avanço das pesquisas e ensaios técnicos realizados pela equipe do NEMA.
+          </p>
+        </div>
+
+        <div class="dev-timeline">
+          <!-- EDITÁVEL: Etapa 1 -->
+          <div class="dev-item">
+            <div class="dev-date">ETAPA 01</div>
+            <div class="dev-content">
+              <h3 class="dev-title">Estudo e Dimensionamento do Grão Propulsor</h3>
+              <p>
+                Cálculos de estequiometria, velocidade de queima e geometria interna da câmara de combustão. Definição da mistura do propelente sólido e simulação teórica da taxa de geração de gás.
+              </p>
+            </div>
+          </div>
+
+          <!-- EDITÁVEL: Etapa 2 -->
+          <div class="dev-item">
+            <div class="dev-date">ETAPA 02</div>
+            <div class="dev-content">
+              <h3 class="dev-title">Simulação Aerodinâmica e Estabilidade</h3>
+              <p>
+                Modelagem do minifoguete no software OpenRocket. Localização do Centro de Gravidade (C.G.) e do Centro de Pressão (C.P.) para assegurar a margem de estabilidade necessária durante a subida.
+              </p>
+            </div>
+          </div>
+
+          <!-- EDITÁVEL: Etapa 3 -->
+          <div class="dev-item">
+            <div class="dev-date">ETAPA 03</div>
+            <div class="dev-content">
+              <h3 class="dev-title">Ensaios Estáticos em Bancada</h3>
+              <p>
+                [EM PREPARAÇÃO] Construção de bancada instrumentada com célula de carga e sensores de pressão para aquisição de dados do perfil de empuxo em tempo real.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SEÇÃO 4: GALERIA DE FOTOGRAFIAS
+         ========================================================================== -->
+    <section id="fotos" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">// REGISTROS VISUAIS</span>
+          <h2 class="section-title">Galeria de Fotografias</h2>
+          <p class="section-description">
+            Acompanhe os bastidores do laboratório, fabricação de componentes, reuniões e ensaios.
+          </p>
+        </div>
+
+        <div class="photo-grid">
+          <!-- EDITÁVEL: Foto 1 -->
+          <div class="photo-card" onclick="openLightbox(this)"
+               data-full="https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=1200&q=80"
+               data-title="Modelagem 3D do Minifoguete"
+               data-desc="Visualização CAD da estrutura externa e do encaixe das empenas estabilizadoras.">
+            <div class="photo-wrapper">
+              <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=600&q=80" alt="Modelagem 3D do Minifoguete">
+            </div>
+            <div class="photo-info">
+              <h3 class="photo-title">Modelagem CAD</h3>
+              <p class="photo-caption">Fuselagem e estabilizadores</p>
+            </div>
+          </div>
+
+          <!-- EDITÁVEL: Foto 2 -->
+          <div class="photo-card" onclick="openLightbox(this)"
+               data-full="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80"
+               data-title="Trabalho de Laboratório"
+               data-desc="Medição de componentes e preparação do corpo de prova do propelente sólido.">
+            <div class="photo-wrapper">
+              <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Trabalho de Laboratório">
+            </div>
+            <div class="photo-info">
+              <h3 class="photo-title">Preparação de Materiais</h3>
+              <p class="photo-caption">Ensaio e controle de massa</p>
+            </div>
+          </div>
+
+          <!-- EDITÁVEL: Foto 3 -->
+          <div class="photo-card" onclick="openLightbox(this)"
+               data-full="https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?auto=format&fit=crop&w=1200&q=80"
+               data-title="Simulações no Computador"
+               data-desc="Execução de simulações aerodinâmicas para validação do apogeu e comportamento de voo.">
+            <div class="photo-wrapper">
+              <img src="https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?auto=format&fit=crop&w=600&q=80" alt="Simulações Computacionais">
+            </div>
+            <div class="photo-info">
+              <h3 class="photo-title">Análise de Dados</h3>
+              <p class="photo-caption">Simulação no OpenRocket</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIGHTBOX MODAL DE FOTOS -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização de Imagem em Tamanho Cheio">
+      <div class="lightbox-content">
+        <button class="lightbox-close" onclick="closeLightbox()" aria-label="Fechar modal">&times;</button>
+        <div class="lightbox-img-container">
+          <img id="lightboxImg" src="" alt="">
+        </div>
+        <div class="lightbox-details">
+          <h3 id="lightboxTitle" class="photo-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;"></h3>
+          <p id="lightboxDesc" class="photo-caption" style="font-size: 0.9rem; color: var(--text-secondary);"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         SEÇÃO 5: GALERIA DE VÍDEOS
+         ========================================================================== -->
+    <section id="videos" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">// DEMONSTRAÇÕES E TESTES</span>
+          <h2 class="section-title">Galeria de Vídeos</h2>
+          <p class="section-description">
+            Apresentações de projetos, registros de ensaios em bancada e demonstrações experimentais.
+          </p>
+        </div>
+
+        <div class="video-grid">
+          <!-- EDITÁVEL: Vídeo 1 (YouTube) -->
+          <article class="video-card">
+            <div class="video-responsive">
+              <!-- Substitua o ID 'dQw4w9WgXcQ' pelo ID do vídeo do YouTube -->
+              <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Apresentação do Projeto NEMA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-info">
+              <h3 class="video-title">Apresentação Geral do NEMA</h3>
+              <p class="video-desc">Visão panorâmica dos objetivos da equipe e estrutura do IFMA Campus Imperatriz.</p>
+            </div>
+          </article>
+
+          <!-- EDITÁVEL: Vídeo 2 (YouTube) -->
+          <article class="video-card">
+            <div class="video-responsive">
+              <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Ensaio Estático de Bancada" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-info">
+              <h3 class="video-title">Ensaio Estático do Propulsor</h3>
+              <p class="video-desc">Registro do teste de bancada para aquisição das curvas de pressão e empuxo.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SEÇÃO 6: EQUIPE E COLABORADORES
+         ========================================================================== -->
+    <section id="equipe" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">// CORPO DOCENTE E DISCENTE</span>
+          <h2 class="section-title">Equipe do NEMA</h2>
+          <p class="section-description">
+            Pesquisadores, professores orientadores e estudantes envolvidos nas atividades do núcleo.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <!-- EDITÁVEL: Membro 1 -->
+          <div class="team-card">
+            <div class="team-avatar">
+              <!-- Insira a URL da foto ou mantenha a sigla -->
+              <span>PROF</span>
+            </div>
+            <h3 class="team-name">Prof. Dr. Coordenador</h3>
+            <span class="team-role">Coordenador do Núcleo</span>
+            <p class="team-bio">Docente do IFMA Campus Imperatriz com atuação nas áreas de Engenharia e Modelagem.</p>
+          </div>
+
+          <!-- EDITÁVEL: Membro 2 -->
+          <div class="team-card">
+            <div class="team-avatar">
+              <span>DISC</span>
+            </div>
+            <h3 class="team-name">Pesquisador Discente</h3>
+            <span class="team-role">Propulsão & Materiais</span>
+            <p class="team-bio">Estudante bolsista responsável pelo estudo da mistura do propelente sólido.</p>
+          </div>
+
+          <!-- EDITÁVEL: Membro 3 -->
+          <div class="team-card">
+            <div class="team-avatar">
+              <span>DISC</span>
+            </div>
+            <h3 class="team-name">Pesquisador Discente</h3>
+            <span class="team-role">Aerodinâmica & CAD</span>
+            <p class="team-bio">Estudante responsável pelo dimensionamento aerodinâmico e simulações de voo.</p>
+          </div>
+
+          <!-- EDITÁVEL: Membro 4 -->
+          <div class="team-card">
+            <div class="team-avatar">
+              <span>DISC</span>
+            </div>
+            <h3 class="team-name">Pesquisador Discente</h3>
+            <span class="team-role">Eletrônica & Telemetria</span>
+            <p class="team-bio">Estudante focado no sistema de aquisição de dados e recuperação por paraquedas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SEÇÃO 7: CONTATO E INFORMAÇÕES INSTITUCIONAIS
+         ========================================================================== -->
+    <section id="contato" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">// ENDEREÇO E COMUNICAÇÃO</span>
+          <h2 class="section-title">Contato Institucional</h2>
+          <p class="section-description">
+            Entre em contato com o núcleo para colaborações acadêmicas, parcerias e informações.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+          <div class="academic-card">
+            <h3 class="card-title">Localização</h3>
+            <p>
+              <strong>IFMA — Campus Imperatriz</strong><br>
+              Av. Marly Sarney, s/n - Vila Nova<br>
+              Imperatriz - MA, CEP: 65915-240
+            </p>
+          </div>
+
+          <div class="academic-card">
+            <h3 class="card-title">Canais Oficiais</h3>
+            <p>
+              <!-- EDITÁVEL: Insira seus dados reais -->
+              <strong>E-mail do Núcleo:</strong> nema.imperatriz@ifma.edu.br<br>
+              <strong>Rede Social:</strong> @nema.ifma<br>
+              <strong>Laboratório:</strong> Bloco de Engenharia / Pesquisa
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       RODAPÉ
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand footer-brand">
+            <div class="brand-mark">NEMA</div>
+            <div class="brand-text">
+              <span class="brand-title">NEMA — IFMA</span>
+              <span class="brand-sub">Campus Imperatriz</span>
+            </div>
+          </div>
+          <p style="font-size: 0.875rem; color: var(--text-muted); max-width: 400px;">
+            Núcleo de Estudos em Modelagem Aeroespacial. Dedicado à pesquisa científica, desenvolvimento tecnológico e difusão do conhecimento no IFMA.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Navegação</h4>
+          <ul class="footer-links">
+            <li><a href="#apresentacao">Apresentação</a></li>
+            <li><a href="#sobre">Sobre o Projeto</a></li>
+            <li><a href="#desenvolvimento">Desenvolvimento</a></li>
+            <li><a href="#fotos">Fotografias</a></li>
+            <li><a href="#videos">Vídeos</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Institucional</h4>
+          <ul class="footer-links">
+            <li><a href="https://imperatriz.ifma.edu.br/" target="_blank" rel="noopener">IFMA Campus Imperatriz</a></li>
+            <li><a href="#equipe">Equipe NEMA</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; NEMA — Núcleo de Estudos em Modelagem Aeroespacial. Todos os direitos reservados.
+        </div>
+        <div>
+          Instituto Federal do Maranhão (IFMA)
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       SCRIPTS JAVASCRIPT NATIVOS
+       ========================================================================== -->
+  <script>
+    // 1. Alternância do Menu Mobile
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+
+    // Fechar menu ao clicar em um link
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    });
+
+    // 2. Lightbox da Galeria de Fotos
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxDesc = document.getElementById('lightboxDesc');
+
+    function openLightbox(element) {
+      const fullUrl = element.getAttribute('data-full');
+      const title = element.getAttribute('data-title');
+      const desc = element.getAttribute('data-desc');
+
+      lightboxImg.src = fullUrl;
+      lightboxImg.alt = title;
+      lightboxTitle.textContent = title;
+      lightboxDesc.textContent = desc;
+
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Impede rolagem ao fundo
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Fechar lightbox ao clicar fora da imagem ou pressionar ESC
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+  </script>
+</body>
+</html>
