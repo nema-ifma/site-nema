@@ -349,63 +349,39 @@
       </div>
     </section>
 
-    <!-- GALERIA DE FOTOS (6 ESPAÇOS) -->
+    <!-- GALERIA DE FOTOS (3 FOTOS) -->
     <section id="fotos" class="section">
       <div class="container">
         <div class="section-header">
           <span class="section-subtitle">// REGISTROS VISUAIS</span>
           <h2 class="section-title">Galeria de Fotografias</h2>
-          <p class="section-description">Acompanhe as fases de modelagem, impressão e o momento do lançamento.</p>
+          <p class="section-description">Registros do foguete montado, medido e pesado antes do lançamento.</p>
         </div>
 
         <div class="photo-grid">
           <!-- Foto 1 -->
           <div class="photo-card" onclick="openLightbox(this)" 
-               data-full="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1200&q=80"
-               data-title="Modelagem no Fusion 360" 
-               data-desc="Desenvolvimento das quatro estruturas modulares (ogiva, carga, paraquedas, motor).">
-            <div class="photo-wrapper"><img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=600&q=80" alt="Modelagem CAD"></div>
-            <div class="photo-info"><h3 class="photo-title">Design Computacional</h3><p class="photo-caption">Autodesk Fusion 360</p></div>
+               data-full="fotos/foguete-haste.jpg"
+               data-title="Foguete na Haste de Lançamento" 
+               data-desc="Foguete montado na haste de lançamento. Foi usada uma guia de lançamento para garantir que o foguete ficasse perpendicular ao chão.">
+            <div class="photo-wrapper"><img src="fotos/foguete-haste.jpg" alt="Foguete montado na haste de lançamento"></div>
+            <div class="photo-info"><h3 class="photo-title">Foguete na Haste de Lançamento</h3><p class="photo-caption">Foguete montado na haste de lançamento. Foi usada uma guia de lançamento para garantir que o foguete ficasse perpendicular ao chão.</p></div>
           </div>
           <!-- Foto 2 -->
           <div class="photo-card" onclick="openLightbox(this)" 
-               data-full="https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?auto=format&fit=crop&w=1200&q=80"
-               data-title="Simulação Aerodinâmica" 
-               data-desc="Validação de CG, CP e margem de estabilidade estática no OpenRocket.">
-            <div class="photo-wrapper"><img src="https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?auto=format&fit=crop&w=600&q=80" alt="Simulação"></div>
-            <div class="photo-info"><h3 class="photo-title">Dinâmica de Voo</h3><p class="photo-caption">Estudo no OpenRocket</p></div>
+               data-full="fotos/foguete-comprimento.jpg"
+               data-title="Medição do Comprimento" 
+               data-desc="Medição do comprimento do foguete, sendo ele 49,8 cm.">
+            <div class="photo-wrapper"><img src="fotos/foguete-comprimento.jpg" alt="Medição do comprimento do foguete"></div>
+            <div class="photo-info"><h3 class="photo-title">Medição do Comprimento</h3><p class="photo-caption">Medição do comprimento do foguete, sendo ele 49,8 cm.</p></div>
           </div>
           <!-- Foto 3 -->
           <div class="photo-card" onclick="openLightbox(this)" 
-               data-full="https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=1200&q=80"
-               data-title="Manufatura Aditiva (PLA)" 
-               data-desc="Impressão 3D das seções do foguete na impressora Ender 3 Neo.">
-            <div class="photo-wrapper"><img src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=600&q=80" alt="Impressão 3D"></div>
-            <div class="photo-info"><h3 class="photo-title">Impressão Estrutural</h3><p class="photo-caption">FDM com PLA</p></div>
-          </div>
-          <!-- Foto 4 -->
-          <div class="photo-card" onclick="openLightbox(this)" 
-               data-full="https://lh3.googleusercontent.com/d/1TlxS74GVegg0Wx-SkHhtXB1HXEce0Wr9"
-               data-title="Integração Eletrônica" 
-               data-desc="Montagem do microcontrolador, sensor barométrico e módulo microSD.">
-            <div class="photo-wrapper"><img src="https://lh3.googleusercontent.com/d/1TlxS74GVegg0Wx-SkHhtXB1HXEce0Wr9" alt="Eletrônica"></div>
-            <div class="photo-info"><h3 class="photo-title">Módulo de Carga</h3><p class="photo-caption">Sistemas embarcados</p></div>
-          </div>
-          <!-- Foto 5 -->
-          <div class="photo-card" onclick="openLightbox(this)" 
-               data-full="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80"
-               data-title="Foguete Montado e Pesagem" 
-               data-desc="Protótipo completo aferindo 262 gramas com eletrônica e motor.">
-            <div class="photo-wrapper"><img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Montagem final"></div>
-            <div class="photo-info"><h3 class="photo-title">Estrutura Integrada</h3><p class="photo-caption">Massa final: 262g</p></div>
-          </div>
-          <!-- Foto 6 -->
-          <div class="photo-card" onclick="openLightbox(this)" 
-               data-full="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=1200&q=80"
-               data-title="Teste de Lançamento" 
-               data-desc="Lançamento atingindo 39,2 metros de altitude com sucesso e estabilidade.">
-            <div class="photo-wrapper"><img src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=600&q=80" alt="Lançamento"></div>
-            <div class="photo-info"><h3 class="photo-title">Ensaio de Voo</h3><p class="photo-caption">Altitude: 39,2m</p></div>
+               data-full="fotos/foguete-peso.jpg"
+               data-title="Medição de Peso" 
+               data-desc="Foguete em medição de peso, tendo 262 gramas.">
+            <div class="photo-wrapper"><img src="fotos/foguete-peso.jpg" alt="Foguete em medição de peso"></div>
+            <div class="photo-info"><h3 class="photo-title">Medição de Peso</h3><p class="photo-caption">Foguete em medição de peso, tendo 262 gramas.</p></div>
           </div>
         </div>
       </div>
@@ -423,67 +399,40 @@
       </div>
     </div>
 
-    <!-- GALERIA DE VÍDEOS (6 ESPAÇOS) -->
+    <!-- GALERIA DE VÍDEOS (2 VÍDEOS) -->
     <section id="videos" class="section">
       <div class="container">
         <div class="section-header">
           <span class="section-subtitle">// DEMONSTRAÇÕES E TESTES</span>
           <h2 class="section-title">Galeria de Vídeos</h2>
-          <p class="section-description">Registros em vídeo das atividades do projeto, testes mecânicos e simulações.</p>
+          <p class="section-description">Registros em vídeo da impressão das peças e do lançamento do foguete.</p>
         </div>
 
         <div class="video-grid">
           <!-- Vídeo 1 -->
           <article class="video-card">
-            <div class="video-responsive"><iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe></div>
-            <div class="video-info">
-              <h3 class="video-title">01. Apresentação do Projeto</h3>
-              <p class="video-desc">Visão geral do NEMA, dos objetivos da pesquisa e dos métodos de desenvolvimento.</p>
-            </div>
-          </article>
-          <!-- Vídeo 2 -->
-          <article class="video-card">
-            <div class="video-responsive"><iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe></div>
-            <div class="video-info">
-              <h3 class="video-title">02. Modelagem CAD (Timelaspe)</h3>
-              <p class="video-desc">Aceleração visual do processo de modelagem e montagem dos 4 módulos no Fusion 360.</p>
-            </div>
-          </article>
-          <!-- Vídeo 3 -->
-          <article class="video-card">
-            <div class="video-responsive"><iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe></div>
-            <div class="video-info">
-              <h3 class="video-title">03. Impressão 3D na Ender 3</h3>
-              <p class="video-desc">Registro do processo de manufatura aditiva da ogiva e das empenas de estabilização.</p>
-            </div>
-          </article>
-          <!-- Vídeo 4 -->
-          <article class="video-card">
-            <div class="video-responsive"><iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe></div>
-            <div class="video-info">
-              <h3 class="video-title">04. Teste da Eletrônica</h3>
-              <p class="video-desc">Validação do módulo de carga, calibração do barômetro e teste do motor servo do paraquedas.</p>
-            </div>
-          </article>
-          <!-- Vídeo 5 -->
-          <article class="video-card">
-            <div class="video-responsive"><iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe></div>
-            <div class="video-info">
-              <h3 class="video-title">05. Integração do Propulsor</h3>
-              <p class="video-desc">Adequação estrutural do motor comercial ao módulo inferior e verificação de ajustes mecânicos.</p>
-            </div>
-          </article>
-          <!-- Vídeo 6 -->
-          <article class="video-card">
             <div class="video-responsive">
               <video controls playsinline preload="metadata">
-                <source src="videos/lancamento-oficial.mp4" type="video/mp4">
+                <source src="videos/impressao-foguete.mp4" type="video/mp4">
                 Seu navegador não suporta a reprodução de vídeo.
               </video>
             </div>
             <div class="video-info">
-              <h3 class="video-title">06. Lançamento Oficial</h3>
-              <p class="video-desc">Registro de campo do voo inaugural, subindo a 39,2 metros de altitude com extrema estabilidade.</p>
+              <h3 class="video-title">01. Processo de Impressão</h3>
+              <p class="video-desc">Processo de Impressão do foguete. Cada peça foi impressa em filamento PLA, o vídeo mostra o nariz do foguete sendo feito.</p>
+            </div>
+          </article>
+          <!-- Vídeo 2 -->
+          <article class="video-card">
+            <div class="video-responsive">
+              <video controls playsinline preload="metadata">
+                <source src="videos/lancamento-foguete.mp4" type="video/mp4">
+                Seu navegador não suporta a reprodução de vídeo.
+              </video>
+            </div>
+            <div class="video-info">
+              <h3 class="video-title">02. Lançamento do Foguete</h3>
+              <p class="video-desc">Gravação do lançamento do foguete. Atingiu uma altura de 39.3 metros aproximadamente.</p>
             </div>
           </article>
         </div>
