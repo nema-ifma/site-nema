@@ -146,10 +146,10 @@
     .lightbox-close { position: absolute; top: 1rem; right: 1rem; background: rgba(0,0,0,0.6); border: 1px solid var(--border-color); color: #fff; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 1.25rem; display: flex; align-items: center; justify-content: center; z-index: 10; }
 
     /* GALERIA DE VÍDEOS */
-    .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+    .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; align-items: start; }
     .video-card { background-color: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--border-radius); overflow: hidden; }
-    .video-responsive { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background-color: #000; }
-    .video-responsive iframe, .video-responsive video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; object-fit: cover; }
+    .video-responsive { position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #000; }
+    .video-responsive iframe, .video-responsive video { display: block; width: 100%; height: auto; max-height: 75vh; border: 0; object-fit: contain; background-color: #000; }
     .video-info { padding: 1.25rem; }
     .video-title { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
     .video-desc { font-size: 0.875rem; color: var(--text-secondary); }
